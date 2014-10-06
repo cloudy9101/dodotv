@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="col-md-9">
+		<div class="page-header">
+			<h2><%= @article.title %></h2>
+			<small>导航</small>
+		</div>
+	</div>
+	<div class="col-md-3 up-info">
+		<div class="row">
+			<div class="col-md-3">
+				<img src="upper.png">
+			</div>
+			<div class="col-md-9">
+				<p>Up主-Name</p>
+				<div class="divider"></div>
+				<p>
+					微博@花卷不是吃的花卷 这世间爱看烟花之人总是多于烟花过后默默清扫残屑之人···
+				</p>
+				<button class="btn btn-primary">关注</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-9">
+		<iframe height=522 width=860 src="http://player.youku.com/embed/<%= @article.vid %>" frameborder=0 allowfullscreen></iframe>
+	</div>
+	<div class="col-md-3">
+		弹幕
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-9">
+		收藏
+	</div>
+	<div class="col-md-3"></div>
+</div>
+<div class="row">
+	<div class="col-md-9">
+		<%= @article.remark %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-9">
+		<h3>评论</h3>
+
+	</div>
+</div>
