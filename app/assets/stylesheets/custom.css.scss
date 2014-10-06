@@ -2,15 +2,111 @@
 @import 'bootstrap-sprockets';
 
 
+li {
+	list-style-type: none;
+}
+
+
+/* universial */
+.widescreen {
+	min-width: 990px;
+	background-color: #fafafa;
+}
+
+
 
 /* player page */
+.v-header {
+	.logo {
+		width: 60px;
+		float: left;
+		height: 60px;
+	}
+	.title {
+		font-size: 2em;
+	}
+	.nav {
+		margin-bottom: 20px;
+		color: #666;
+	}
+}
+
+.v-page-info {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
 .up-info {
 	width: 290px;
 	border: 1px solid #ddd;
 	background: #eee;
+	padding: 5px;
+	font-size: 0.8em;
 }
 
 .divider {
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
+}
+
+.player {
+	border: 1px soild #ddd;
+	margin: 0;	
+}
+
+.danmu {
+	border: 1px solid #ddd;
+	margin: 0;
+	height: 522px;
+	background-color: #ffffff;
+	h5 {
+		border-bottom: 1px solid #ddd;
+	}
+	table {
+		margin: 0;
+		padding: 0;
+		font-size: 0.8em;
+		tr {
+			th {
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}
+
+.share {
+	height: 52px;
+	border: 1px solid #ddd;
+	margin-top: 10px;
+	background-color: #ffffff;
+	.col-md-4 {
+		border-right: 1px solid #ddd;
+		height: 50px;
+		font-size: 1.5em;
+		padding-top: 9px;
+		padding-bottom: 9px;
+	}
+}
+
+.remark {
+	margin-top: 20px;
+	background-color: #ffffff;
+	border: 1px solid #ddd;
+	font-size: 1em;
+	padding: 10px 10px 20px 10px;
+}
+
+#v-comments {
+	.facebox {
+		width: 60px;
+		float: left;
+		height: 60px;
+	}
+	.name {
+		font-size: 0.8em;
+	}
+	.content {
+		font-size: 1em;
+	}
 }

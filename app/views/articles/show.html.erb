@@ -1,9 +1,12 @@
-<div class="row">
-	<div class="col-md-9">
-		<div class="page-header">
-			<h2><%= @article.title %></h2>
-			<small>导航</small>
+<div class="row v-page-info">
+	<div class="col-md-9 v-header">
+		<div class="logo">
+			<img src="logo">
 		</div>
+		<div class="title"><b><%= @article.title %></b></div>
+		<div class="nav"><span>导航</span> <span> 2014-10-06 01:02 </span><span><%= @article.count %></span></div>
+		<div class="divider"></div>
+		
 	</div>
 	<div class="col-md-3 up-info">
 		<div class="row">
@@ -16,33 +19,52 @@
 				<p>
 					微博@花卷不是吃的花卷 这世间爱看烟花之人总是多于烟花过后默默清扫残屑之人···
 				</p>
-				<button class="btn btn-primary">关注</button>
+				<a href="#" class="btn btn-primary btn-sm"> 关注 </a>
 			</div>
 		</div>	
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-9">
+	<div class="col-md-9 player">
 		<iframe height=522 width=860 src="http://player.youku.com/embed/<%= @article.vid %>" frameborder=0 allowfullscreen></iframe>
 	</div>
-	<div class="col-md-3">
-		弹幕
+	<div class="col-md-3 danmu">
+		<h5>弹幕</h5>
+		<table class="table">
+  			<thead>
+  				<tr>
+  					<th>进度</th>
+  					<th>内容</th>
+  					<th>发送时间</th>
+  				</tr>
+  			</thead>
+  			<tbody>
+  				<tr>
+  					<td>3:22</td>
+  					<td>第一条弹幕</td>
+  					<td>9-10 10:33</td>
+  				</tr>
+  			</tbody>
+		</table>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-9">
-		收藏
-	</div>
-	<div class="col-md-3"></div>
+<div class="row share">
+	<div class="col-md-4">分享</div>
+	<div class="col-md-4"></div>
+	<div class="col-md-4">赞</div>
 </div>
 <div class="row">
-	<div class="col-md-9">
+	<div class="col-md-9 remark">
 		<%= @article.remark %>
 	</div>
 </div>
-<div class="row">
+<div class="row" id="v-comments">
 	<div class="col-md-9">
-		<h3>评论</h3>
-
+		<h4><b>评论</b></h4>
+		<li>
+			<div class="facebox"><img src="commentface"></div>
+			<div class="name">flymoon1128</div>
+			<div class="content">我也是...小伙伴们越来越少了</div>
+		</li>
 	</div>
 </div>
