@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+  
   get 'c_:id', to: 'categories#show'
 
   get 'articles/index'

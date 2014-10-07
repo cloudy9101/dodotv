@@ -8,7 +8,12 @@
 </head>
 <body>
 	<%= render 'layouts/header' %>
+
 	<div class="widescreen">
+		<%if !(notice.nil? || alert.nil?) %>
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+		<% end %>
 		<div class="container">
 			<%= yield %>
 		</div>

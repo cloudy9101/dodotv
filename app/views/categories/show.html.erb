@@ -12,7 +12,7 @@
 		<div class="movie-list">
 			<% @category.articles.each do |article| %>
 				<div class="movie-list-item">
-					<img src="v-fengmian" alt="title">
+					<%= image_tag article.avatar.article_thumb.url, height: "75", width: "120" %>
 					<a href=<%= article_path(article) %>><%= article.title %></a>
 					<div class="info">
 						<%= article.remark[0..60] %>

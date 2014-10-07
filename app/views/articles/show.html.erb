@@ -1,14 +1,17 @@
 <div class="row v-page-info">
 	<div class="col-md-9 v-header">
 		<div class="logo">
-			<img src="logo">
+			<%= image_tag "logo.png", height: 60, width: 60 %>
 		</div>
 		<div class="title"><b><%= @article.title %></b></div>
 		<div class="nav">
-			导航 
+			<%= link_to "首页", root_path %>>
+			<%= link_to @article.category.name, "/c_#{@article.category.id}" %>
 			 2014-10-06 01:02 
-			<span class="glyphicon glyphicon-stats"></span>
-			<%= @article.count %>
+			<span class="glyphicon glyphicon-stats" title="播放"></span>
+			<%= @article.count %> 
+			<span class="glyphicon glyphicon-star" title="赞"></span>
+			<%= @article.favout_count %>
 		</div>
 		<div class="divider"></div>
 		
@@ -16,13 +19,13 @@
 	<div class="col-md-3 up-info">
 		<div class="row">
 			<div class="col-md-3">
-				<img src="upper.png">
+				<%= image_tag @article.user.avatar.user_thumb %>
 			</div>
 			<div class="col-md-9">
-				<p>Up主-Name</p>
+				<p><%= link_to @article.user.username %></p>
 				<div class="divider"></div>
 				<p>
-					微博@花卷不是吃的花卷 这世间爱看烟花之人总是多于烟花过后默默清扫残屑之人···
+					<%= @article.user.userbrief[0..50] %>
 				</p>
 				<a href="#" class="btn btn-primary btn-sm"> 关注 </a>
 			</div>
@@ -56,7 +59,7 @@
 <div class="row share">
 	<div class="col-md-4">分享</div>
 	<div class="col-md-4"></div>
-	<div class="col-md-4">赞</div>
+	<div class="col-md-4 favour"><span class="glyphicon glyphicon-thumbs-up"></span> 赞</div>
 </div>
 <div class="row">
 	<div class="col-md-9 remark">
