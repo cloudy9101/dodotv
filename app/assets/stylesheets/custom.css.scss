@@ -45,9 +45,101 @@ ul {
 	}
 }
 
+/* category page */
+.category {
+	.col-md-9 {
+		padding-left: 0;
+	}
+}
+
+.category-header {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+}
+
+.t {
+	float: left;
+	font-size: 2em;
+	margin-right: 20px;
+}
+
+.c-slt-tab {
+	font-size: 1em;
+	padding-top: 1em;
+	a {
+		padding: 0 3px 0 3px;
+	}
+	a:link, a:visited {
+		margin: 0;
+		text-align: center;
+		text-decoration: none;
+		color: #000;
+	}
+	a:hover, a:active {
+		background-color: #eee;
+	}
+}
+
+.movie-list {
+	width: 878px;
+}
+
+.movie-list-item {
+	float: left;
+	height: 154px;
+	width: 430px;
+	padding: 15px 15px 15px 5px;
+	border: 1px solid #eee;
+	margin-right: 9px;
+	margin-bottom: 10px;
+	background-color: #fff;
+	img {
+		margin-left: 10px;
+	}
+	a:link, a:visited {
+		font-size: 1.2em;
+		color: #000;
+		margin-left: 5px;
+		text-decoration: none;
+	}
+	a:hover, a:active {
+		color: #555;
+	}
+	.info {
+		font-size: 0.8em;
+		color: #555;
+		margin-left: 10px;
+	}
+}
+
+.category-hot {
+	margin: 20px 5px 10px 15px;
+	width: 260px;
+	.hot-list {
+		.hot-list-item {
+			margin: 0 0 15px;
+			a:link, a:visited {
+				font-size: 1em;
+				color: #000;
+				margin-left: 5px;
+				text-decoration: none;
+			}
+			a:hover, a:active {
+				color: #555;
+			}
+			p {
+				font-size: 0.8em;
+				color: #555;
+			}
+		}
+	}
+}
 
 /* player page */
 .v-header {
+	margin-top: 20px;
 	.logo {
 		width: 60px;
 		float: left;
@@ -58,7 +150,7 @@ ul {
 	}
 	.nav {
 		margin-top: 5px;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 		color: #666;
 	}
 }
@@ -79,6 +171,7 @@ ul {
 .divider {
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
+	margin-top: 5px;
 }
 
 .player {

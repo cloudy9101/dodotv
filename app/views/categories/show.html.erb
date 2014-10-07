@@ -1,0 +1,49 @@
+<div class="row category">
+	<div class="col-md-9">
+		<div class="row category-header">
+			<div class="t">电影</div>
+			<div class="c-slt-tab">
+				<a href="#" class="tab-i">拼音排序</a>
+				<a href="#" class="tab-i">投稿时间排序</a>
+				<a href="#" class="tab-i">视频热度排序</a>
+			</div>
+			<div class="divider"></div>
+		</div>
+		<div class="movie-list">
+			<% @category.articles.each do |article| %>
+				<div class="movie-list-item">
+					<img src="v-fengmian" alt="title">
+					<a href=<%= article_path(article) %>><%= article.title %></a>
+					<div class="info">
+						<%= article.remark[0..60] %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="col-md-3 category-hot">
+		<h4>本区热门</h4>
+		<div class="hot-list">
+			<div class="hot-list-item">
+				<img src="v-hot" alt="title">
+				<a href="#">title</a>
+				<p>100 | 21</p>
+			</div>
+			<div class="hot-list-item">
+				<img src="v-hot" alt="title">
+				<a href="#">title</a>
+				<p>100 | 21</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<h1><%= @category.name %></h1>
+<ul>
+	<% @category.articles.each do |article| %>
+		<li><%= article.title %></li>
+	<% end %>
+</ul>

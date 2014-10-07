@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'c_:id', to: 'categories#show'
+
   get 'articles/index'
 
   get 'articles/show'
