@@ -1,0 +1,52 @@
+<div class="row" id="upload-article">
+	<div class="col-md-2">
+		
+	</div>
+	<div class="col-md-10">
+		<div class="page-header"><h3>投稿</h3></div>
+		<%= form_for @article, html: { class: "form-horizontal", role: "form" } do |f| %>
+			<% if @article.errors.any? %>
+				<ul class="list-group">
+					<% @article.errors.full_messages.each do |error| %>
+						<li class="list-group-item list-group-item-danger"><%= error %></li>
+					<% end %>
+				</ul>
+			<% end %>
+			<div class="form-group">
+				<%= f.label :avatar, "封面图片:", class: "control-label" %>
+				<%= f.file_field :avatar, class: "form-control" %>
+				<%= f.hidden_field :avatar_cache %>
+			</div>
+			<div class="form-group">
+				<%= f.label :title, "标题:", class: "control-label" %>
+				<%= f.text_field :title, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :remark, "备注:", class: "control-label" %>
+				<%= f.text_area :remark, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :category_id, "分类:", class: "control-label" %>
+				<%= f.select :category_id, options_for_select([['电影', 1], ['电视', 2], ['综艺', 3]]) %>
+			</div>	
+			<div class="form-group">
+				<%= f.label :source, "来源:", class: "control-label" %>
+				<label class="radio-inline">
+					<%= f.radio_button :source, "youku" %>优酷
+				</label>
+				<label class="radio-inline">
+					<%= f.radio_button :source, "sina" %>新浪
+				</label>
+				<label class="radio-inline">
+					<%= f.radio_button :source, "qq" %>腾讯
+				</label>
+			</div>
+			<div class="form-group">
+				<%= f.label :vid, "视频vid:", class: "control-label" %>
+				<%= f.text_field :vid, class: "form-control" %>
+			</div>
+
+				<%= f.submit "提交", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>
