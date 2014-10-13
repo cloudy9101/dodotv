@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+
+
+  post 'comments/create'
+
+  get 'comments/delete'
+
   devise_for :users
   
   get 'c_:id', to: 'categories#show'
@@ -10,7 +16,9 @@ Rails.application.routes.draw do
 
   root 'articles#index'
 
-  resources :articles
+  resources :articles do
+     resources :comments
+   end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

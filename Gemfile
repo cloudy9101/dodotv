@@ -41,7 +41,7 @@ gem 'spring',        group: :development
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+gem 'will_paginate-bootstrap'
 
 # Carrierwave
 gem 'carrierwave'

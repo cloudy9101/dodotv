@@ -69,10 +69,32 @@
 <div class="row" id="v-comments">
 	<div class="col-md-9">
 		<h4><b>评论</b></h4>
-		<li>
-			<div class="facebox"><img src="commentface"></div>
-			<div class="name">flymoon1128</div>
-			<div class="content">我也是...小伙伴们越来越少了</div>
-		</li>
+		<% if signed_in? %>
+			<%= form_for @comment, remote: true, url: article_comments_path(@article.id) do |f| %>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-2">
+							<%= image_tag current_user.avatar.user_thumb %>
+							<p><%= current_user.username %></p>
+						</div>
+						<div class="col-md-9">
+							<%= f.text_area :text, class: "form-control" %>
+							<%= f.submit "发布评论", class: "btn btn-primary", id: "commit" %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<% else %>
+			请先<%= link_to "登陆", "/users/sign_in" %>,再发表评论。
+		<% end %>
+		<div class="divider"></div>
+		<div id="comments-list">
+			<% if @comments.any? %>
+				<% @comments.each do |comment| %>
+						<%= render comment %>
+				<% end %>
+			<% end %>
+			<%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
+		</div>
 	</div>
 </div>

@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
 	belongs_to :category
 	belongs_to :user
+	has_many :comments
 	mount_uploader :avatar, AvatarUploader
 
 	validates :title, :remark, :category, :source, :vid, :avatar, presence: true
