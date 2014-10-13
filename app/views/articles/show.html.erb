@@ -34,7 +34,8 @@
 </div>
 <div class="row">
 	<div class="col-md-9 player">
-		<iframe height=522 width=860 src="http://player.youku.com/embed/<%= @article.vid %>" frameborder=0 allowfullscreen></iframe>
+		<!--<iframe height=522 width=860 src="http://player.youku.com/embed/<%= @article.vid %>" frameborder=0 allowfullscreen></iframe>-->
+		<div id="youkuplayer" style="width:860px;height:522px"></div>
 	</div>
 	<div class="col-md-3 danmu">
 		<h5>弹幕</h5>
@@ -98,3 +99,11 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript" src="http://player.youku.com/jsapi">
+player = new YKU.Player('youkuplayer',{
+styleid: '0',
+client_id: 'YOUR YOUKUOPENAPI CLIENT_ID',
+vid: '<%= @article.vid %>'
+});
+</script>
