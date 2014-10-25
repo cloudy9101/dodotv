@@ -5,8 +5,10 @@ class ArticlesController < ApplicationController
 
   def show
   	@article = Article.find(params[:id])
+        @barrage = Barrage.new
         @comment = Comment.new
         @comments = @article.comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10 )
+
   end
 
   def new

@@ -2,22 +2,25 @@ Rails.application.routes.draw do
 
 
 
-  post 'comments/create'
+  # post 'barrages/create'
 
-  get 'comments/delete'
+  #post 'comments/create'
+
+  #get 'comments/delete'
 
   devise_for :users
   
   get 'c_:id', to: 'categories#show'
 
-  get 'articles/index'
+ # get 'articles/index'
 
-  get 'articles/show'
+ # get 'articles/show'
 
   root 'articles#index'
 
   resources :articles do
      resources :comments
+     resources :barrages
    end
 
   # The priority is based upon order of creation: first created -> highest priority.

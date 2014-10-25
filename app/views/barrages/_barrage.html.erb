@@ -1,0 +1,5 @@
+<tr>
+	<td><%= Time.at(barrage.time.to_i).strftime "%M:%S" %></td>
+	<td><%= barrage.content %></td>
+	<td><%= barrage.created_at.strftime('%m-%d %H:%M').to_s %></td>
+</tr>
