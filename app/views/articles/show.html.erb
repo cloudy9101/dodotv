@@ -27,7 +27,7 @@
 				<p>
 					<%= @article.user.userbrief[0..50] %>
 				</p>
-				<a href="#" class="btn btn-primary btn-sm"> 关注 </a>
+				<a href="#" class="btn btn-primary btn-sm" id="focuson"> 关注 </a>
 			</div>
 		</div>	
 	</div>
@@ -110,7 +110,7 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="http://player.youku.com/jsapi">
+<script type="text/javascript">
 player = new YKU.Player('youkuplayer',{
 	styleid: '0',
 	client_id: '4709a18f3ad1febf',
@@ -118,18 +118,14 @@ player = new YKU.Player('youkuplayer',{
 	events:{
 		onPlayerReady: function(){ /*your code*/ },
 		onPlayStart: function(){ 
-			document.getElementById('barrage-content').disabled = false;
+			
 		 },
 		onPlayEnd: function(){ 
-			document.getElementById('barrage-content').disabled = true;
+			
 		}
 	}
 });
 function currentTime(){
 	return player.currentTime();
-};
-
-document.getElementById("barrage-submit").onclick = function() {
-	document.getElementById("barrage-time").value = currentTime();
 };
 </script>

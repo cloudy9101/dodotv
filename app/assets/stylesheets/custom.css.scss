@@ -240,3 +240,17 @@ ul {
 		}
 	}
 }
+
+#barrage-on-player {
+	z-index: 1;
+	height: 482px;
+	width: 860px;
+	position: absolute;
+	#barrage-item {
+		font-size: 20px;
+		color: white;
+		position: relative;
+		left: 860px;
+		top: 0;
+	}
+}
