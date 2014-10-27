@@ -1,5 +1,5 @@
 source 'https://ruby.taobao.org'
-
+source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
@@ -50,3 +50,6 @@ gem 'imagemagick-identify'
 
 # User control - devise
 gem 'devise'
+
+# CCL 弹幕 核心通用构件
+gem 'rails-assets-comment-core-library'
