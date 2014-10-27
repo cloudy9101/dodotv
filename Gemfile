@@ -53,3 +53,6 @@ gem 'devise'
 
 # CCL 弹幕 核心通用构件
 gem 'rails-assets-comment-core-library'
+
+# Faker自动生成内容
+gem 'faker'

@@ -1,22 +1,10 @@
 Rails.application.routes.draw do
 
-
-
-  # post 'barrages/create'
-
-  #post 'comments/create'
-
-  #get 'comments/delete'
+  root 'articles#index'
 
   devise_for :users
   
   get 'c_:id', to: 'categories#show'
-
- # get 'articles/index'
-
- # get 'articles/show'
-
-  root 'articles#index'
 
   resources :articles do
      resources :comments

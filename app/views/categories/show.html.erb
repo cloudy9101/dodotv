@@ -10,40 +10,24 @@
 			<div class="divider"></div>
 		</div>
 		<div class="movie-list">
-			<% @category.articles.each do |article| %>
+			<% @articles.each do |article| %>
 				<div class="movie-list-item">
-					<%= image_tag article.avatar.article_thumb.url, height: "75", width: "120" %>
-					<a href=<%= article_path(article) %>><%= article.title %></a>
-					<div class="info">
-						<%= article.remark[0..60] %>
-					</div>
+					<%= render partial: 'categories/article', object: article %>
 				</div>
 			<% end %>
+			<%= will_paginate @articles, class: "digg_pagination" %>
 		</div>
 	</div>
 	<div class="col-md-3 category-hot">
 		<h4>本区热门</h4>
 		<div class="hot-list">
-			<div class="hot-list-item">
-				<img src="v-hot" alt="title">
-				<a href="#">title</a>
-				<p>100 | 21</p>
-			</div>
-			<div class="hot-list-item">
-				<img src="v-hot" alt="title">
-				<a href="#">title</a>
-				<p>100 | 21</p>
-			</div>
+			<% n = 0 %>
+			<% @articles_hot.each do |article_hot| %>
+				<div class="hot-list-item">
+					<span class="label label-default"><%= n+1 %></span> <%= link_to article_hot.title, article_path(article_hot) %>
+					<% n += 1 %>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>
-
-
-
-
-<h1><%= @category.name %></h1>
-<ul>
-	<% @category.articles.each do |article| %>
-		<li><%= article.title %></li>
-	<% end %>
-</ul>
