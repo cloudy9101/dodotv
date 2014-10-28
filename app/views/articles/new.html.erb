@@ -1,8 +1,16 @@
 <div class="row" id="upload-article">
 	<div class="col-md-2">
-		
+		<div class="page-header"><h3>用户</h3></div>
+		<div><%= image_tag @user.avatar.user_thumb, size: "100x100" %></div>
+		<h4><%=link_to @user.username, "#" %></h4>
+		<div>
+			<p>投稿统计：<%= @user.articles.count %></p>
+			<p>邮箱：<br><%= @user.email %></p>
+			<p>注册时间：<br> <%= @user.created_at %></p>
+			<p><%= link_to "登出", destroy_user_session_path, method: :delete %></p>
+		</div>
 	</div>
-	<div class="col-md-10">
+	<div class="col-md-8">
 		<div class="page-header"><h3>投稿</h3></div>
 		<%= form_for @article, html: { class: "form-horizontal", role: "form" } do |f| %>
 			<% if @article.errors.any? %>

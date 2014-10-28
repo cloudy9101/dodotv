@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
 
   def new
   	@article = Article.new
+        @user = current_user
   end
 
   def create

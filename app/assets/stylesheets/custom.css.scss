@@ -8,11 +8,14 @@ li {
 .headerwide {
 	min-width: 990px;
 	backgroung-color: #ffffff;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 2px;
 }
 
 .widescreen {
 	min-width: 990px;
 	background-color: #fafafa;
+	margin: auto;
 }
 
 /* navbar */
@@ -322,3 +325,25 @@ ul {
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; }
+
+    /* 注册 登陆 页面 */
+    .form-center {
+    	margin: auto;
+    	text-align: center;
+    	.left {
+    		text-align: left;
+    	}
+    }
+
+    /* footer */
+    .footer {
+    	margin-top: 20px;
+    	border-top: 1px solid #ccc;
+    	padding: auto;
+    	margin-bottom: 20px;
+    	.footer-item {
+    		margin-top: 10px;
+    		border-left: 1px solid #ddd;
+    		border-right: 1px solid #ddd;
+    	}
+    }
