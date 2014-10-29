@@ -1,6 +1,54 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-li {
-	list-style-type: none;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* Don't kill focus outline for keyboard users: http://24ways.org/2009/dont-lose-your-focus */
+a:hover, a:active {
+    outline: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 
@@ -347,3 +395,55 @@ ul {
     		border-right: 1px solid #ddd;
     	}
     }
+
+    /* index */
+    .articles-hot-item {
+    	margin-top: 20px;
+    	p {
+    		color: #999;
+    		font-size: 0.8em;
+    		margin: 5px 0 0 0;
+    		padding: 0;
+    	}
+    	.article-stat {
+    		color: #999;
+    		font-size: 0.8em;
+    		margin: 5px 0 0 0;
+    		padding: 0;
+    	}
+    }
+    
+.col-lg-2dot4 {
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+@media (min-width: 1200px) {
+	.col-lg-2dot4 {
+		float: left;
+	}
+	.col-lg-2dot4 {
+		width: 20%;
+	}
+	.col-lg-pull-2dot4 {
+		right: 20%;
+	}
+	.col-lg-push-2dot4 {
+		left: 20%;
+	}
+	.col-lg-offset-2dot4 {
+		margin-left: 20%;
+	}
+}
+
+a:link, a:visited {
+	font-size: 1.2em;
+	margin: 5px 0 0 0;
+	padding: 0 0 5px 0;
+	text-decoration: none;
+	color: #222;
+}
+a:hover, a:active {
+	color: #555;
+}

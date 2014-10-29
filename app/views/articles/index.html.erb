@@ -1,2 +1,106 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<div class="articles-hot">
+	<div class="row">
+		<div class="col-md-12">
+		<% @articles_hot.each do |article_hot| %>
+			<div class="col-md-2">
+				<div class="articles-hot-item">
+					<%=link_to image_tag(article_hot.avatar.article_thumb, size: "180x120"), article_path(article_hot) %>
+					<p><%= link_to article_hot.title, article_path(article_hot) %></p>
+				</div>
+			</div>
+		<% end %>
+		</div>
+	</div>
+	
+</div>
+<div class="category-articles-hot">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="page-header">
+				<h3><a href="/c1">电影 <small>更多内容</small></a></h3>
+			</div>
+			<% @articles_c1.each do |article| %>
+				<div class="col-lg-2dot4">
+					<div class="articles-hot-item">
+						<%= render partial: 'articles_hot_item', locals: { article: article } %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-md-3 category-hot">
+			<div class="page-header">
+				<h4>本区热门</h4>
+			</div>
+			<div class="hot-list">
+				<% n = 0 %>
+				<% @articles_c1_hot.each do |article| %>
+					<div class="hot-list-item">
+						<span class="label label-default"><%= n + 1 %></span><%= link_to article.title, article_path(article) %>
+						<% n += 1 %>
+					</div>	
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="category-articles-hot">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="page-header">
+				<h3><a href="/c2">电视 <small>更多内容</small></a></h3>
+			</div>
+			<% @articles_c2.each do |article| %>
+				<div class="col-lg-2dot4">
+					<div class="articles-hot-item">
+						<%= render partial: 'articles_hot_item', locals: { article: article } %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-md-3 category-hot">
+			<div class="page-header">
+				<h4>本区热门</h4>
+			</div>
+			<div class="hot-list">
+				<% n = 0 %>
+				<% @articles_c2_hot.each do |article| %>
+					<div class="hot-list-item">
+						<span class="label label-default"><%= n + 1 %></span><%= link_to article.title, article_path(article) %>
+						<% n += 1 %>
+					</div>	
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="category-articles-hot">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="page-header">
+				<h3><a href="/c3">综艺 <small>更多内容</small></a></h3>
+			</div>
+			<% @articles_c3.each do |article| %>
+				<div class="col-lg-2dot4">
+					<div class="articles-hot-item">
+						<%= render partial: 'articles_hot_item', locals: { article: article } %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-md-3 category-hot">
+			<div class="page-header">
+				<h4>本区热门</h4>
+			</div>
+			<div class="hot-list">
+				<% n = 0 %>
+				<% @articles_c3_hot.each do |article| %>
+					<div class="hot-list-item">
+						<span class="label label-default"><%= n + 1 %></span><%= link_to article.title, article_path(article) %>
+						<% n += 1 %>
+					</div>	
+				<% end %>
+			</div>
+		</div>
+	</div>
+	
+</diV>
