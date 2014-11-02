@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 

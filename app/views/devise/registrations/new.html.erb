@@ -1,59 +1,60 @@
-<div class="form-center">
-	<h2>注册新用户</h2>
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
-	 	 <%= devise_error_messages! %>
-
-	 	 <div class="form-group">
-	 	 	<%= image_tag(resource.avatar_url) if resource.avatar? %>
-	 	 	<%= f.label :avatar, "上传头像：", class: "control-label col-sm-2 col-sm-offset-2" %>
-	 	 	<div class="col-sm-4">
-	 	 		<%= f.file_field :avatar %>
-	 	 		<%= f.hidden_field :avatar_cache %>
-	 	 	</div>
-	 	 </div>
-
-		  <div class="form-group">
-		  	<%= f.label :email, "邮箱：", class: "control-label col-sm-2 col-sm-offset-2" %>
-		  	<div class="col-sm-4">
-		  		<%= f.email_field :email, autofocus: true, class: "form-control" %>
-		  	</div>
-		  </div>
-
-		  <div class="form-group">
-		  	<%= f.label :password, "密码：", class: "control-label col-sm-2 col-sm-offset-2" %>
-		  	<div class="col-sm-4">
-		  		<%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-		  	</div>
-		  	<div class="col-sm-4 left">
-		  		<% if @validatable %><i>(密码长度应大于<%= @minimum_password_length %>位)</i><% end %>
-		  	</div>	
+<div class="registration">
+	<div class="col-md-12">
+		<div class="page-header">
+			<h3>注册新用户</h3>
 		</div>
+		<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
+		 	 <%= devise_error_messages! %>
 
-				
+		 	 <div class="form-group">
+		 	 	<%= image_tag(resource.avatar_url) if resource.avatar? %>
+		 	 	<%= f.label :avatar, "上传头像：", class: "col-sm-3 control-label" %>
+		 	 	<div class="col-sm-9">
+		 	 		<%= f.file_field :avatar, class: "form-control" %>
+		 	 		<%= f.hidden_field :avatar_cache %>
+		 	 	</div>
+		 	 </div>
 
-		  <div class="form-group">
-		  	<%= f.label :password_confirmation, "密码确认：", class: "control-label col-sm-2 col-sm-offset-2" %>
-		  	<div class="col-sm-4">
-		  		<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-		  	</div>
-		    </div>
+			  <div class="form-group">
+			  	<%= f.label :email, "邮箱：", class: "control-label col-sm-3" %>
+			  	<div class="col-sm-9">
+			  		<%= f.email_field :email, autofocus: true, class: "form-control" %>
+			  	</div>
+			  </div>
 
-		    <div class="form-group">
-		    	<%= f.label :username, "昵称", class: "control-label col-sm-2 col-sm-offset-2" %>
-		    	<div class="col-sm-4">
-		    		<%= f.text_field :username, class: "form-control" %>
-		    	</div>
-		    </div>
+			  <div class="form-group">
+			  	<%= f.label :password, "密码：", class: "control-label col-sm-3" %>
+			  	<div class="col-sm-9">
+			  		<%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+			  	</div>	
+			</div>
 
-		    <div class="form-group">
-		    	<%= f.label :userbrief, "个人简介", class: "control-label col-sm-2 col-sm-offset-2" %>
-		    	<div class="col-sm-4">
-		    		<%= f.text_area :userbrief, class: "form-control" %>
-		    	</div>
-		    </div>
+					
 
-		  <div><%= f.submit "注册", class: "btn btn-primary" %></div>
-	<% end %>
+			  <div class="form-group">
+			  	<%= f.label :password_confirmation, "密码确认：", class: "control-label col-sm-3" %>
+			  	<div class="col-sm-9">
+			  		<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+			  	</div>
+			    </div>
 
-	<%= render "devise/shared/links" %>
+			    <div class="form-group">
+			    	<%= f.label :username, "昵称", class: "control-label col-sm-3" %>
+			    	<div class="col-sm-9">
+			    		<%= f.text_field :username, class: "form-control" %>
+			    	</div>
+			    </div>
+
+			    <div class="form-group">
+			    	<%= f.label :userbrief, "个人简介", class: "control-label col-sm-3" %>
+			    	<div class="col-sm-9">
+			    		<%= f.text_area :userbrief, class: "form-control" %>
+			    	</div>
+			    </div>
+
+			  <div class="submit"><%= f.submit "注册", class: "btn btn-primary" %></div>
+		<% end %>
+
+	</div>
+	<div class="clear"></div>
 </div>

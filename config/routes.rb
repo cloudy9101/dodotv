@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  get 'c_:id', to: 'categories#show'
+  get 'c_:id', to: 'categories#show', as: :category
 
   resources :articles do
      resources :comments

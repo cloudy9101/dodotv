@@ -2,12 +2,9 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
   def index
         @articles_hot = Article.all.order("count DESC").limit(12)
-        @articles_c1 = Category.find(1).articles.order("created_at DESC").limit(10)
-        @articles_c2 = Category.find(2).articles.order("created_at DESC").limit(10)
-        @articles_c3 = Category.find(3).articles.order("created_at DESC").limit(10)
-        @articles_c1_hot = Category.find(1).articles.order("count DESC").limit(10)
-        @articles_c2_hot = Category.find(2).articles.order("count DESC").limit(10)
-        @articles_c3_hot = Category.find(3).articles.order("count DESC").limit(10)
+
+        @categories = Category.all
+
   end
 
   def show

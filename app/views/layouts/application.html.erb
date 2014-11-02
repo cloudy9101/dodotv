@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
-  <title>Dodotv</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script type="text/javascript" src="http://player.youku.com/jsapi"></script>
-  <%= csrf_meta_tags %>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<title>Dodotv</title>
+ 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+ 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ 	<script type="text/javascript" src="http://player.youku.com/jsapi"></script>
+ 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render 'layouts/header' %>
+	<div class="container">
 
-	<div class="widescreen">
+		<%= render 'layouts/header' %>
+	
 		<%if !(notice.nil? || alert.nil?) %>
 			<p class="notice"><%= notice %></p>
 			<p class="alert"><%= alert %></p>
 		<% end %>
-		<div class="container">
-			<%= yield %>
-		</div>
+		
+		<%= yield %>
 
 		<%= render 'layouts/footer' %>
-	</div>
 
-
-		
+	</div>	
 </body>
 </html>

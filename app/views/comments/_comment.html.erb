@@ -1,10 +1,10 @@
-<div class="row comments-list-item">
-	<div class="col-md-2">
+<div class="comments-list-item">
+	<div class="user-img">
 		<%= image_tag comment.user.avatar.user_thumb %>
 		<p><%= link_to comment.user.username %></p>
 	</div>
-	<div class="col-md-9">
+	<div class="comment">
 		<%= comment.text %>
 	</div>
+	<div class="clear"></div>
 </div>
-<div class="divider"></div>

@@ -1,110 +1,106 @@
-<div class="row v-page-info">
-	<div class="col-md-9 v-header">
-		<div class="logo">
-			<%= image_tag "logo.png", height: 60, width: 60 %>
+<div class="row ">
+	<div class="col-md-9">
+		<div class="article-show-stat">
+			<div class="title"><%= @article.title %></div>
+			<div class="nav">
+				<%= link_to "首页", root_path %>/
+				<%= link_to @article.category.name, category_path(@article.category) %>
+				<%= @article.created_at.strftime("%Y-%m-%d %H:%M") %>
+				<span class="glyphicon glyphicon-stats" title="播放"></span>
+				<%= @article.count %> 
+				<span class="glyphicon glyphicon-star" title="赞"></span>
+				<%= @article.favout_count %>
+			</div>
 		</div>
-		<div class="title"><b><%= @article.title %></b></div>
-		<div class="nav">
-			<%= link_to "首页", root_path %>>
-			<%= link_to @article.category.name, "/c_#{@article.category.id}" %>
-			 2014-10-06 01:02 
-			<span class="glyphicon glyphicon-stats" title="播放"></span>
-			<%= @article.count %> 
-			<span class="glyphicon glyphicon-star" title="赞"></span>
-			<%= @article.favout_count %>
-		</div>
-		<div class="divider"></div>
-		
 	</div>
-	<div class="col-md-3 up-info">
-		<div class="row">
-			<div class="col-md-3">
+	<div class="col-md-3">
+		<div class="article-show-user">
+			<div class="user-img">
 				<%= image_tag @article.user.avatar.user_thumb %>
 			</div>
-			<div class="col-md-9">
-				<p><%= link_to @article.user.username %></p>
-				<div class="divider"></div>
-				<p>
-					<%= @article.user.userbrief[0..50] %>
-				</p>
-				<a href="#" class="btn btn-primary btn-sm" id="focuson"> 关注 </a>
+			<div class="user-name">
+				<%= link_to @article.user.username %>
+				<a href="#" class="btn btn-primary btn-xs" id="focuson"> 关注 </a>
 			</div>
-		</div>	
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-9 player">
-		<div class="abp">
-			<div class="container">
-				
+			<div class="user-brief">
+				<%= @article.user.userbrief[0..50] %>
 			</div>
+			<div class="clear"></div>
 		</div>
-		<div id="youkuplayer" style="width:860px;height:522px"></div>
 	</div>
-	<div class="col-md-3 danmu">
-		<h5>弹幕</h5>
-		<table class="table">
-  			<thead>
-  				<tr>
-  					<th>进度</th>
-  					<th>内容</th>
-  					<th>发送时间</th>
-  				</tr>
-  			</thead>
-  			<tbody id="barrages-list">
-  				<% if @article.barrages.any? %>
-  					<% @article.barrages.each do |barrage| %>
-		  				<%= render barrage %>
+</div>
+<div class="row">
+	<div class="col-md-9">
+		<div class="player">
+			<div id="youkuplayer" style="width:845px;height:522px"></div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="barrages-table">
+			<table class="table">
+	  			<thead>
+	  				<tr>
+	  					<th>进度</th>
+	  					<th>内容</th>
+	  					<th>发送时间</th>
+	  				</tr>
+	  			</thead>
+	  			<tbody id="barrages-list">
+	  				<% if @article.barrages.any? %>
+	  					<% @article.barrages.each do |barrage| %>
+			  				<%= render barrage %>
+			  			<% end %>
 		  			<% end %>
-	  			<% end %>
-  			</tbody>
-		</table>
+	  			</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-9">
-		<%= form_for @barrage, remote: true, url: article_barrages_path(@article.id) do |f| %>
-			<div class="form-group">
-				<%= f.text_field :content, class: "form-control", id: "barrage-content", disabled: true %>
-				<%= f.hidden_field :time, id: "barrage-time" %>
-				<%= f.submit "发送弹幕", class: "btn btn-primary", id: "barrage-submit" %>
-			</div>
-		<% end %>
-	</div>
-</div>
-<div class="row share">
-	<div class="col-md-5">分享</div>
-	<div class="col-md-3 favour"><span class="glyphicon glyphicon-thumbs-up"></span> 赞</div>
-	<div class="col-md-3"></div>
-</div>
-<div class="row">
-	<div class="col-md-9 remark">
-		<%= @article.remark %>
-	</div>
-</div>
-<div class="row" id="v-comments">
-	<div class="col-md-9">
-		<h4><b>评论</b></h4>
-		<% if signed_in? %>
-			<%= form_for @comment, remote: true, url: article_comments_path(@article.id) do |f| %>
+		<div class="send-barrage">
+			<%= form_for @barrage, remote: true, url: article_barrages_path(@article.id), html: { class: "form-inline" } do |f| %>
 				<div class="form-group">
-					<div class="row">
-						<div class="col-md-2">
-							<%= image_tag current_user.avatar.user_thumb %>
-							<p><%= current_user.username %></p>
-						</div>
-						<div class="col-md-9">
-							<%= f.text_area :text, class: "form-control" %>
-							<%= f.submit "发布评论", class: "btn btn-primary", id: "commit" %>
-						</div>
-					</div>
+					<%= f.text_field :content, class: "form-control", id: "barrage-content", disabled: true %>
+					<%= f.submit "发送弹幕", class: "btn btn-default", id: "barrage-submit" %>
+					<%= f.hidden_field :time, id: "barrage-time" %>
 				</div>
 			<% end %>
-		<% else %>
-			请先<%= link_to "登陆", "/users/sign_in" %>,再发表评论。
-		<% end %>
-		<div class="divider"></div>
-		<div id="comments-list">
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="btn btn-default">
+			<a href="#">分享</a>
+		</div>
+		<div class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up"></span><a href="#">赞</a></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-9">
+		<div class="article-show-remark">
+			<%= @article.remark %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-9">
+		<div class="article-show-comment">
+			<% if signed_in? %>
+				<%= form_for @comment, remote: true, url: article_comments_path(@article.id) do |f| %>
+					<div class="user-img">
+						<%= image_tag current_user.avatar.user_thumb %>
+					</div>
+					<div class="form-group">
+						<%= f.text_area :text, size: "85x4", class: "form-control" %>
+						<%= f.submit "发布评论", class: "btn btn-primary btn-sm", id: "commit" %>
+					</div>
+				<% end %>
+			<% end %>
+			<div class="clear"></div>
+		</div>
+		<div id="article-show-comments-list">
 			<% if @comments.any? %>
 				<% @comments.each do |comment| %>
 						<%= render comment %>

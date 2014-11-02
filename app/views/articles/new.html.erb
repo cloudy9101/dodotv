@@ -1,60 +1,76 @@
 <div class="row" id="upload-article">
-	<div class="col-md-2">
-		<div class="page-header"><h3>用户</h3></div>
-		<div><%= image_tag @user.avatar.user_thumb, size: "100x100" %></div>
-		<h4><%=link_to @user.username, "#" %></h4>
-		<div>
-			<p>投稿统计：<%= @user.articles.count %></p>
-			<p>邮箱：<br><%= @user.email %></p>
-			<p>注册时间：<br> <%= @user.created_at %></p>
-			<p><%= link_to "登出", destroy_user_session_path, method: :delete %></p>
+	<div class="col-md-4">
+		<div class="user-info">
+			<div class="page-header"><h3>用户</h3></div>
+			<div><%= image_tag @user.avatar.user_thumb, size: "100x100" %></div>
+			<h4><%=link_to @user.username, "#" %></h4>
+			<div>
+				<p>投稿统计：<%= @user.articles.count %></p>
+				<p>邮箱：<br><%= @user.email %></p>
+				<p>注册时间：<br> <%= @user.created_at %></p>
+				<p><%= link_to "登出", destroy_user_session_path, method: :delete %></p>
+			</div>
 		</div>
 	</div>
 	<div class="col-md-8">
-		<div class="page-header"><h3>投稿</h3></div>
-		<%= form_for @article, html: { class: "form-horizontal", role: "form" } do |f| %>
-			<% if @article.errors.any? %>
-				<ul class="list-group">
-					<% @article.errors.full_messages.each do |error| %>
-						<li class="list-group-item list-group-item-danger"><%= error %></li>
-					<% end %>
-				</ul>
-			<% end %>
-			<div class="form-group">
-				<%= f.label :avatar, "封面图片:", class: "control-label" %>
-				<%= f.file_field :avatar, class: "form-control" %>
-				<%= f.hidden_field :avatar_cache %>
-			</div>
-			<div class="form-group">
-				<%= f.label :title, "标题:", class: "control-label" %>
-				<%= f.text_field :title, class: "form-control" %>
-			</div>
-			<div class="form-group">
-				<%= f.label :remark, "备注:", class: "control-label" %>
-				<%= f.text_area :remark, class: "form-control" %>
-			</div>
-			<div class="form-group">
-				<%= f.label :category_id, "分类:", class: "control-label" %>
-				<%= f.select :category_id, options_for_select([['电影', 1], ['电视', 2], ['综艺', 3]]) %>
-			</div>	
-			<div class="form-group">
-				<%= f.label :source, "来源:", class: "control-label" %>
-				<label class="radio-inline">
-					<%= f.radio_button :source, "youku" %>优酷
-				</label>
-				<label class="radio-inline">
-					<%= f.radio_button :source, "sina" %>新浪
-				</label>
-				<label class="radio-inline">
-					<%= f.radio_button :source, "qq" %>腾讯
-				</label>
-			</div>
-			<div class="form-group">
-				<%= f.label :vid, "视频vid:", class: "control-label" %>
-				<%= f.text_field :vid, class: "form-control" %>
-			</div>
+		<div class="upload">
+			<div class="page-header"><h3>投稿</h3></div>
+			<%= form_for @article, html: { class: "form-horizontal", role: "form" } do |f| %>
+				<% if @article.errors.any? %>
+					<ul class="list-group">
+						<% @article.errors.full_messages.each do |error| %>
+							<li class="list-group-item list-group-item-danger"><%= error %></li>
+						<% end %>
+					</ul>
+				<% end %>
+				<div class="form-group">
+					<%= f.label :avatar, "封面图片:", class: "control-label col-md-2" %>
+					<div class="col-md-10">
+						<%= f.file_field :avatar, class: "form-control" %>
+						<%= f.hidden_field :avatar_cache %>
+					</div>
+				</div>
+				<div class="form-group">
+					<%= f.label :title, "标题:", class: "control-label col-md-2" %>
+					<div class="col-md-10">
+						<%= f.text_field :title, class: "form-control" %>
+					</div>
+				</div>
+				<div class="form-group">
+					<%= f.label :remark, "备注:", class: "control-label col-md-2" %>
+					<div class="col-md-10">
+						<%= f.text_area :remark, size: "100x4", class: "form-control" %>
+					</div>
+				</div>
+				<div class="form-group">
+					<%= f.label :category_id, "分类:", class: "control-label col-md-2" %>
+					<div class="col-md-4">
+						<%= f.select :category_id, options_for_select([['电影', 1], ['电视', 2], ['综艺', 3]]) %>
+					</div>
+				</div>	
+				<div class="form-group">
+					<%= f.label :source, "来源:", class: "control-label col-md-2" %>
+					<div class="col-md-10">
+						<label class="radio-inline">
+							<%= f.radio_button :source, "youku" %>优酷
+						</label>
+						<label class="radio-inline">
+							<%= f.radio_button :source, "sina" %>新浪
+						</label>
+						<label class="radio-inline">
+							<%= f.radio_button :source, "qq" %>腾讯
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<%= f.label :vid, "视频vid:", class: "control-label col-md-2" %>
+					<div class="col-md-10">
+						<%= f.text_field :vid, class: "form-control" %>
+					</div>
+				</div>
 
-				<%= f.submit "提交", class: "btn btn-primary" %>
-		<% end %>
+					<%= f.submit "提交", class: "btn btn-primary" %>
+			<% end %>
+		</div>
 	</div>
 </div>
