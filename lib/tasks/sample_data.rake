@@ -11,7 +11,8 @@ namespace :db do
 							category_id: i + 1,
 							barrage_id: 1,
 							favout_count: "#{n}",
-							source: "youku")
+							source: "youku",
+							avatar: File.open("/article_thumb.jpg"))
 			end
 		end
 	end
