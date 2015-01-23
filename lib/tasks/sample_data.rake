@@ -12,7 +12,7 @@ namespace :db do
 							barrage_id: 1,
 							favout_count: "#{n}",
 							source: "youku",
-							avatar: File.open("/app/app/assets/1.jpg"))
+							avatar: File.open("/app/app/assets/images/1.jpg"))
 			end
 		end
 	end
