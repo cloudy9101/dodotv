@@ -1,6 +1,16 @@
 namespace :db do 
 	desc "Fill database with sample data"
 	task populate: :environment do
+		Category.create!(name: "电影")
+		Category.create!(name: "电视")
+		Category.create!(name: "综艺")
+		User.create!(
+			email: "ex@am.ple",
+			password: "11111111",
+			username: "exam",
+			userbrief: "exam test exam test",
+			avatar: File.open("/app/app/assets/images/2.jpg")
+			)
 		user = User.first
 		3.times do |i|
 			50.times do |n|
