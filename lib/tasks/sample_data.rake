@@ -4,7 +4,7 @@ namespace :db do
 		user = User.first
 		3.times do |i|
 			50.times do |n|
-				user.articles.create!(title: "飞虎-#{n}-#{i}",
+				user.articles.create!(title: "大药坊-#{n}-#{i}",
 							 vid: "XODA2OTk1MjU#{n}#{i}", 
 							 remark: "杜佳期（钟嘉欣）本来是民初一间大药厂的千金小姐，谁知药厂有问题令她家道中落，加上发生好多疫症，为了挽救民众的生命，她想尽一切方法治病救人。",
 							count: "#{n}",
@@ -12,7 +12,7 @@ namespace :db do
 							barrage_id: 1,
 							favout_count: "#{n}",
 							source: "youku",
-							avatar: File.open("/article_thumb.jpg"))
+							avatar: File.open("/app/article_thumb.jpg"))
 			end
 		end
 	end
